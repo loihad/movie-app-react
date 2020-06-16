@@ -1,7 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
+import { IMAGE_BASE_URL } from "../../../config";
+import "./Actor.css";
 
-export default class Actor extends Component {
-  render() {
-    return <div></div>;
-  }
+export default function Actor(props) {
+  const POSTER_SIZE = "w154";
+  return (
+    <div className="rmdb-actor">
+      <img
+        src={
+          props.actor.profile_path
+            ? `${IMAGE_BASE_URL}${POSTER_SIZE}/${props.actor.profile_path}`
+            : "./image/no_image.jpg"
+        }
+        alt="actorthumb"
+      />
+      <span className="rmdb-actor-name">{props.actor.name}</span>
+      <span className="rmdb-actor-character">{props.actor.character}</span>
+    </div>
+  );
 }
